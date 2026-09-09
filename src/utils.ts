@@ -17,12 +17,12 @@
 export type Statut = "vu" | "a_voir" | "abandonne";
 
 export type Film = {
-  id: number;
-  titre: string;
-  annee: number;
-  genres: string[];
-  note: number;
-  statut: Statut;
+  readonly id: number;
+  readonly titre: string;
+  readonly annee: number;
+  readonly genres: string[];
+  readonly note: number;
+  readonly statut: Statut;
 };
 
 export const FILMS: Film[] = [
@@ -150,12 +150,8 @@ export function creer(nouveauFilm: Omit<Film, "id">): Film {
   return { id: prochainId++, ...nouveauFilm };
 }
 
-// --- 10. Une mutation silencieuse --------------------------------------
-// Cette fonction modifie l'objet reçu au lieu d'en renvoyer un nouveau.
-// Le typage ne l'interdira pas — mais `readonly` peut aider.
+// --- 10 ---------------
 
 export function ajouterNote(film: Film, nouvelleNote: number): Film {
-  film.note = (film.note + nouvelleNote) / 2;
-  return film;
+  return { ...film, note: (film.note + nouvelleNote) / 2 };
 }
-
