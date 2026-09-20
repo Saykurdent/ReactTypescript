@@ -1,32 +1,36 @@
-# React + TypeScript + Vite
+# Catalogue Films
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Application React + TypeScript pour rechercher des films (via l'API OMDb), consulter leurs détails, gérer une liste de favoris et une authentification simple.
 
-Currently, two official plugins are available:
+## Créateurs 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Maxime MOULIN et Djibril EL-IDRISSI
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- React Router
 
-## Expanding the Oxlint configuration
+## Installation
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+```bash
+npm run dev       # démarrer le serveur de développement
+npm run build     # build de production
+npm run preview   # prévisualiser le build
+npm run lint      # linter (oxlint)
+```
+
+## Fonctionnalités
+
+- Recherche de films
+- Détail d'un film
+- Favoris (persistés via un contexte)
+- Connexion / inscription
